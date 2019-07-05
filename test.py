@@ -2,8 +2,6 @@ import nltk
 
 from nltk.tokenize import sent_tokenize, word_tokenize
 
-text = open("sample_writing.txt", "r")
-
 with open("sample_writing.txt", "r") as myfile:
     contents_raw = myfile.read()
 
@@ -23,7 +21,13 @@ fdist = FreqDist(tokenized_word)
 
 print(fdist)
 
-print(fdist.most_common(20))
+print(fdist.most_common(5))
+
+import matplotlib.pyplot as plt
+
+fdist.plot(30, cumulative=False)
+
+plt.show
 
 '''
 from nltk.corpus import stopwords
@@ -40,9 +44,3 @@ print("Tokenized contents: ", tokenized_sent)
 
 print("Filtered contents: ", filtered_contents)
 '''
-
-import matplotlib.pyplot as plt
-
-fdist.plot(30, cumulative=False)
-
-plt.show
